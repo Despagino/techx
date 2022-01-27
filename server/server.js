@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 
 app.use("/styles", express.static(path.join(__dirname, "../client/reset.css")));
 
-app.use("/js", express.static(path.join(__dirname, "../client/app.js")));
+app.use("/js", express.static(path.join(__dirname, "../client/index.js")));
 
 
 const port = process.env.PORT || 4005
