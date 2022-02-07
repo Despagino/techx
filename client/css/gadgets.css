@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container .card .image img {
+    width: 330px;
+    height: 300px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 100vh;
+    background: #131313;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 50px;
+    gap: 20px;
+}
+
+.container .card {
+    position: relative;
+    width: 400px;
+    height: 450px;
+    background: #232323;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 15px;
+}
+
+.container .card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #5c5a5a;
+    clip-path: circle(120px at 80% 20%);
+    transition: 0.5s ease-in-out
+}
+
+.container .card:hover:before {
+    clip-path: circle(350px at 80% -20%);
+}
+
+.container .card:after {
+    content: 'etc';
+    position: absolute;
+    top: 20%;
+    left: -1%;
+    font-size: 11em;
+    font-weight: 800;
+    font-style: italic;
+    color: rgba(255,255,255, 0.4);
+}
+
+.container .card .image {
+    position: absolute;
+    top: 50px;
+    transform: translateY(10%);
+    z-index: 1000;
+    width: 100%;
+    height: 220px;
+    transition: 0.5s
+}
+
+.container .card:hover .image {
+    top: 0%;
+    transform: translateY(0%);   
+}
+
+.container .card .content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    transition: 1s;
+    z-index: 10;
+}
+
+.container .card:hover .content {
+    height: 150px;
+}
+
+.container .card .content h2 {
+    position: relative;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff;
+    right: 10px;
+}
+
+.container .card .content .price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 2px;
+    transition: 0.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.container .card:hover .content .price {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.5s;
+}
+
+.container .card .content .price h3{
+    color: #fff;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: 10px;
+}
+
+.container .card .content .price span{
+    width: 26x;
+    height: 26px;
+    text-align: center;
+    line-height: 26px;
+    font-size: 14px;
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    background: rgb(79, 79, 79);
+    margin: 0 5px;
+    transition: 0.5s;
+    border-radius: 4px;
+    padding: 3px;
+    cursor: pointer;
+}
+
+.container .card .content .price span:hover{
+        background: #111;
+}
+
+.container .card .content .seller span {
+    height: 20px;
+    width: 20px;
+    background: rgb(79, 79, 79);
+    color: rgb(255, 255, 255);
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.container .card .content .seller {
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+}
+
+.container .card:hover .content .seller {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.75s;
+}
+
+.container .card .content .seller h3 {
+    color: #fff;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: 10px;
+    display:inline-block;
+}
+
+.container .card .content a button {
+    display: inline-block;
+    padding: 5px;
+    border-radius: 6px;
+    margin-top: 12px;
+    opacity: 0;
+    transition: 0.5s;
+    transform:translateY(50px);
+    font-weight: 600;
+    transition: 0.5s;
+}
+
+.container .card:hover .content a button {
+    transform: translateY(0px);
+    transition-delay: 0.85s;
+    opacity: 1;
+}
+
+
+.header {
+	height: 5rem;
+	position:fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 10;
+	transform: translateY(-100%);
+	background-color: black;
+    min-height: 10vh;
+}
+
+.header.show {
+	transform: translateY(0);
+}
+
+.header.show .header_inner {
+	opacity: 1;
+}
+
+.header .background { 
+	background-color: black;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	transform: translateY(-100%);
+}
+.header.with_background .background { 
+	transform: translateY(0)
+}
+
+.header .header_inner {
+	height: 100%;
+	width: 100%;
+	display:flex;
+	opacity: 0;
+}
+
+.header_logo {
+	flex-grow: 1;
+	overflow: hidden;
+	margin: auto 0;
+	
+}
+
+.header_logo a {
+	display: block;
+	width: 10rem;
+	margin: 0 auto;
+
+}
+
+.header_logo img {
+	height: 50px;
+	width: 150px;
+	object-fit: cover;
+	margin: auto;
+}
+

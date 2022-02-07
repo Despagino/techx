@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.form-section {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(33, 33, 33);
+}
+
+.form-container {
+    width: 80%;
+    min-width:400px;
+    height: 80vh;
+    background: #fff;
+    overflow: hidden;
+    z-index: 2;
+    display: flex;
+    box-shadow: 0 0 200px rgba(0,0,0,0.5);
+}
+
+.form-image {
+    width: 60%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.form {
+    width: 60%;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form .form-heading {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    height: 30px;
+    border: 1px solid #b9b9b9;
+    margin: 5px 0 ;
+    padding: 10px;
+    line-height: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000;
+    outline: none;
+    border-radius: 5px;
+}
+
+::placeholder {
+    color: #878787;
+    text-transform: capitalize;
+}
+
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input:focus {
+    border: 2px solid black;
+}
+
+input:focus::placeholder {
+    color: #d5be8d;
+}
+
+.error{
+    text-transform: uppercase;
+    display: block;
+    font-size: .8rem;
+    color: rgba(255, 41, 41);
+    margin: 5px 0;
+    user-select: none;
+    opacity: 0;
+}
+
+.error.show {
+    opacity: 1;
+}
+
+#tc{
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    padding: 0;
+    border: 1px solid black;
+    cursor:pointer;
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+#tc:checked {
+    background: rgb(157, 128, 128);
+}
+
+#tc::before {
+    content: '';
+    position:absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.tc-text {
+    margin-left: 5px;
+}
+
+.submit-btn {
+    display: block;
+    margin: 20px 0;
+    width: 100px;
+    padding: .8rem 0;
+    border-radius: 1;
+    background: #cbcbcb;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.other-form-link {
+    font-family: 'lato', sans-serif;
+    color: #000;
+    font-size: .8rem;
+}

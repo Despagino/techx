@@ -1,4 +1,4 @@
-let products = document.querySelectorAll(".product_container")
+ let products = document.querySelectorAll(".product_container")
 
 let productObserver = new IntersectionObserver((entries) => {
 
@@ -58,5 +58,3 @@ window.onscroll = () => {
 }
 
 
-
-console.log("hello")
