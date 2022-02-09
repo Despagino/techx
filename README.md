@@ -2,7 +2,8 @@
 ## A provider of technology products and services for aspiring software engineers who are in a budget 
 ---
 
-![](homepage.gif)
+![homepage.gif]()
+
 
 --- 
 ### Technologies Used
@@ -13,6 +14,6 @@
 - Vanilla Javascript
 - Axios
 - Postman
-- 
+
 
 
