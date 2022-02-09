@@ -20,28 +20,15 @@ formBtn.addEventListener('click', () => {
         } else if (phoneNumber.value.length < 10) {
             showFormErr("Number is not valid")
         } else {
-            // sendData({
-            //     name: fullName.value,
-            //     email: email.value,
-            //     password: password.value,
-            //     phoneNumber: phoneNumber.value,
-            //     agreement: agreement.value
-            axios.post("http://localhost:5001/signup", 
-            {
-            name: fullName.value,
-            email: email.value,
-            password: password.value,
-            phoneNumber: phoneNumber.value,
-            agreement: agreement.value
-            }
-            )
-            .then(res => {
-                processData(res.data)
-                console.log('hello')
-            })
+            sendData({
+                name: fullName.value,
+                email: email.value,
+                password: password.value,
+                phoneNumber: phoneNumber.value,
+                agreement: agreement.value
+            } )
         }
 })
-
 
 let showFormErr = err => {
     let error = document.querySelector(".error")
@@ -49,27 +36,18 @@ let showFormErr = err => {
     error.classList.add("show")
 }
 
-// let sendData = (path, data) => {
-//     console.log(data)
-//     fetch("http://localhost:5001/signup", {
-//         method: 'post',
-//         headers: new Headers({'Content-Type': 'application/json'}),
-//         body: JSON.stringify(data)
-//     })
-//     .then(data => processData(data))
-// }
-
-// let sendData = (data) => {
-//     axios.post("http://localhost:5001/signup", data)
-//     .then(res => {
-//         processData(data)
-//         console.log('hello')
-//     })
-// }
+let sendData = (data) => {
+    axios.post("http://localhost:5001/signup", data)
+    .then(res => {
+        processData(data)
+    })
+}
 
 let processData = data => {
-    console.log(data)
+    console.log("Request Sent")
     if(alert.data) {
         showFormErr(data.alert)
+    } else {
+        location.replace('/home')
     }
 }

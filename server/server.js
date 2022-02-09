@@ -23,9 +23,19 @@ app.use(express.json())
 app.use(express.static("client"))
 
 //Routes
-///Homepage Route
+
 app.get('/', (req, res) => {
-res.sendFile("index.html", {root: "client"})
+    res.sendFile("signup.html", {root: "client"})
+})
+
+//Sign Up  
+app.get('/signup', (req, res) => {
+    res.sendFile("signup.html", {root: "client"})
+    })      
+
+///Homepage 
+app.get('/home', (req, res) => {
+    res.sendFile("home.html", {root: "client"})
 })
 
 //Iphones
@@ -48,45 +58,33 @@ app.get('/shop', (req, res) => {
     res.sendFile("shop.html", {root: "client"})
     })      
 
-//Sign Up  
-app.get('/signup', (req, res) => {
-    res.sendFile("signup.html", {root: "client"})
-    })      
+
 
     
 //404error Route
-app.get('/404', (req, res) => {
-    res.sendFile("404.html", {root: "client"})
-})
+// app.get('/404', (req, res) => {
+//     res.sendFile("404.html", {root: "client"})
+// })
 
 //Will direct to 404 html page if url has /404
-app.use((req, res) => {
-    res.redirect('/404')
-})
+// app.use((req, res) => {
+//     res.redirect('/404')
+// })
 
 //Create post request
 app.post("/signup", (req, res) => {
-    const {name, email, password, phoneNumber, agreement} = req.body
-    console.log("hello")
-    if (!name.length) {
-        res.json({'alert': "Please input a name"})
-    } else if (!email.length) {
-        res.json({'alert': "Enter your email"})
-    } else if (password.length < 7) {
-        res.json({'alert': "Password must be at least at 7 characters"})
-    }  else if (!agreement.checked) {
-        res.json({'alert': "Please click on the agreement"})
-    } else if (phoneNumber.length < 10) {
-        res.json({'alert': "Phone number is not valid"})
-    } else {
+        let {name, email, password, phoneNumber, agreement} = req.body
+   
+        let salt = bcrypt.genSaltSync(5)
+        let hashPassword = bcrypt.hashSync(password, salt)
+
         sequelize.query(`
         INSERT INTO users (name, email, password)
-        VALUES ('${name}', '${email}', '${password}');
+        VALUES ('${name}', '${email}', '${hashPassword}');
         `)
         .then(dbRes => {
             res.send(dbRes)
         })
-    }
 
 })
 
